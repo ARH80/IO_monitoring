@@ -3,3 +3,7 @@ seaborn
 pandas
 
 tensorflow
+cmake
+dlib
+numpy
+opencv-python
