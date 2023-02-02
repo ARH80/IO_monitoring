@@ -1,7 +1,7 @@
 import csv
 from contextlib import ContextDecorator
 
-from .utils import add_suffix_to_name
+from utils import add_suffix_to_name
 
 
 class BaseWriter(ContextDecorator):

@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-from .utils import make_output_file
+from utils import make_output_file
 
 
 class Renderer:

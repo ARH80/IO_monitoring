@@ -1,9 +1,9 @@
 import os
 
-from .filters import get_filters
-from .utils import get_iostat_date_format
-from .utils import get_logger
-from .utils import parse_datetime
+from filters import get_filters
+from utils import get_iostat_date_format
+from utils import get_logger
+from utils import parse_datetime
 
 log = get_logger()
 

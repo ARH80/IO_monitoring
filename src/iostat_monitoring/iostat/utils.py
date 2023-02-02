@@ -3,7 +3,7 @@ import os
 import re
 from datetime import datetime
 
-from .consts import PACKAGE_NAME
+from consts import PACKAGE_NAME
 
 
 def get_logger():
@@ -27,12 +27,12 @@ def parse_datetime(s, fmt='%Y%m%d%H%M%S'):
     return datetime.strptime(s, fmt)
 
 
-IOSTAT_DATE_FORMAT_EN = '%m/%d/%Y %I:%M:%S %p'
+IOSTAT_DATE_FORMAT_EN = '%m/%d/%Y %H:%M:%S %p'
 IOSTAT_DATE_EN = re.compile(r"""
 (?P<date>^\d{2}/\d{2}/\d{4}\s*\d{2}:\d{2}:\d{2}\s*(AM|PM))
 """, re.VERBOSE)
 
-IOSTAT_DATE_FORMAT_JA = '%m/%d/%y %I:%M:%S'
+IOSTAT_DATE_FORMAT_JA = '%m/%d/%y %H:%M:%S'
 IOSTAT_DATE_JA = re.compile(r"""
 (?P<date>^\d{2}/\d{2}/\d{2}\s*\d{2}:\d{2}:\d{2})
 """, re.VERBOSE)

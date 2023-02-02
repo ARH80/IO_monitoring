@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 
-from .renderer import Renderer
+from renderer import Renderer
 
 
 class Scatter(Renderer):

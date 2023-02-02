@@ -5,9 +5,9 @@ so use generator based coroutine instead of native coroutine (async/await)
 import asyncio
 import asyncio.subprocess
 
-from .parser import Parser
-from .scatter import Scatter
-from .utils import get_logger
+from parser import Parser
+from scatter import Scatter
+from utils import get_logger
 
 log = get_logger()
 

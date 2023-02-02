@@ -5,11 +5,11 @@ from matplotlib import dates as mdates
 from matplotlib import gridspec
 from matplotlib import pyplot as plt
 
-from .consts import AVGRQ_SZ, AVGQU_SZ, AWAIT, SVCTM
-from .consts import IO_RQM, IOPS, IO_TRANSFER, PERCENT_UTIL
-from .consts import PERCENT_IO_RQM
-from .renderer import Renderer
-from .utils import get_logger
+from consts import AVGRQ_SZ, AVGQU_SZ, AWAIT, SVCTM
+from consts import IO_RQM, IOPS, IO_TRANSFER, PERCENT_UTIL
+from consts import PERCENT_IO_RQM
+from renderer import Renderer
+from utils import get_logger
 
 log = get_logger()
 default_figsize = plt.rcParams.get('figure.figsize')
