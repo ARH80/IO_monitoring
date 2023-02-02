@@ -15,3 +15,7 @@ time cat ./trace.txt | blkparse -i - > ./parsed_trace.txt
 rm -f ./trace.txt
 
 python3 src/iostat_monitoring/iostat/main.py --data ./iostat.txt --disk $2 --fig-output iostat-plot.png plot
+
+chmod -R 777 ./iostat.txt
+chmod -R 777 ./iostat-plot.png
+chmod -R 777 ./parsed_trace.txt
