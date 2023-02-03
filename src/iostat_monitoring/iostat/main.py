@@ -1,11 +1,10 @@
 import argparse
-import csv
 import logging
 
 from consts import DEVICE_SUBPLOTS
 from consts import PLOT_TYPES, PLOT_TYPE_PLOTTER, PLOT_TYPE_SCATTER
 from consts import SUB_COMMAND_CSV, SUB_COMMAND_MONITOR, SUB_COMMAND_PLOT
-from csv import write_csv
+from ecsv import write_csv
 from parser import Parser
 from utils import get_logger
 from utils import parse_datetime
@@ -44,20 +43,20 @@ def sep_type(s):
         raise argparse.ArgumentTypeError('separator is wrong')
 
 
-# def parse_csv_argument(subparsers):
-#     csv_parser = subparsers.add_parser(SUB_COMMAND_CSV)
-#     csv_parser.set_defaults(
-#         dialect='excel',
-#         separator=_COMMA,
-#     )
-#     csv_parser.add_argument(
-#         '--dialect', action='store', choices=csv.list_dialects(),
-#         help='set dialect for csv writer, default is excel'
-#     )
-#     csv_parser.add_argument(
-#         '--separator', action='store', type=sep_type,
-#         help='set separator (choose from comma, tab), default is comma'
-#     )
+def parse_csv_argument(subparsers):
+    csv_parser = subparsers.add_parser(SUB_COMMAND_CSV)
+    csv_parser.set_defaults(
+        dialect='excel',
+        separator=_COMMA,
+    )
+    # csv_parser.add_argument(
+    #     '--dialect', action='store', choices=ecsv.list_dialects(),
+    #     help='set dialect for csv writer, default is excel'
+    # )
+    csv_parser.add_argument(
+        '--separator', action='store', type=sep_type,
+        help='set separator (choose from comma, tab), default is comma'
+    )
 
 
 def parse_monitor_argument(subparsers):
@@ -171,7 +170,7 @@ def parse_argument():
 
     subparsers = parser.add_subparsers(dest='subcommand')
     subparsers.required = True
-    # parse_csv_argument(subparsers)
+    parse_csv_argument(subparsers)
     parse_monitor_argument(subparsers)
     parse_plot_argument(subparsers)
 
