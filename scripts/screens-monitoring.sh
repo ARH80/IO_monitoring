@@ -18,12 +18,14 @@ screen -XS monitoring-screen-blktrace quit
 
 time cat $2/$5/trace.txt | blkparse -i - > $2/$5/parsed_trace.txt
 
+$1 src/iostat_monitoring/iostat/main.py --data $2/$5/iostat.txt --disk $4 --output $2/$5/iostat.csv csv
 $1 src/iostat_monitoring/iostat/main.py --data $2/$5/iostat.txt --disk $4 --fig-output $2/$5/iostat-plot.png plot
 $1 src/blktrace_monitoring/blktrace_plot.py $2/$5
 
 rm -f $2/$5/trace.txt
 
-chmod -R 777 $2/$5/iostat-plot.png
+chmod -R 777 $2/$5/iostat_cpu.csv
+chmod -R 777 $2/$5/iostat_devices.csv
 chmod -R 777 $2/$5
 chmod -R 777 $2/$5/iostat.txt
 chmod -R 777 $2/$5/parsed_trace.txt
