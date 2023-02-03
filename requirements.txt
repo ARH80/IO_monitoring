@@ -11,5 +11,5 @@ tqdm
 torch
 einops
 torchvision
-sklearn
+scikit-learn
 remotezip
