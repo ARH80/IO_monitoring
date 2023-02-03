@@ -118,7 +118,6 @@ class Plotter(Renderer):
             return
 
         data = defaultdict(list)
-        print(self.stats)
         for stat in self.stats:
             cpu = stat['cpu']
             for i, column in enumerate(cpu['columns']):
