@@ -8,3 +8,8 @@ keras
 
 cmake
 dlib
+
+torch
+torchvision
+sklearn
+autoaugment
