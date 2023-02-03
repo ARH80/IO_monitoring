@@ -7,3 +7,8 @@ cmake
 dlib
 numpy
 opencv-python
+
+torch
+torchvision
+sklearn
+autoaugment
