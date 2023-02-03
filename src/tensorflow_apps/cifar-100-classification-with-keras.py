@@ -3,6 +3,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D
 from tensorflow.keras.losses import sparse_categorical_crossentropy
 from tensorflow.keras.optimizers import Adam
+
 import matplotlib.pyplot as plt
 
 # Model configuration
@@ -10,7 +11,7 @@ batch_size = 50
 img_width, img_height, img_num_channels = 32, 32, 3
 loss_function = sparse_categorical_crossentropy
 no_classes = 100
-no_epochs = 100
+no_epochs = 1
 optimizer = Adam()
 validation_split = 0.2
 verbosity = 1
@@ -42,33 +43,16 @@ model.add(Dense(256, activation='relu'))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(no_classes, activation='softmax'))
 
-# Compile the model
-model.compile(loss=loss_function,
-              optimizer=optimizer,
-              metrics=['accuracy'])
+model.compile(
+    loss=loss_function, optimizer=optimizer, metrics=['accuracy'])
 
-# Fit data to model
-history = model.fit(input_train, target_train,
-            batch_size=batch_size,
-            epochs=no_epochs,
-            verbose=verbosity,
-            validation_split=validation_split)
+history = model.fit(
+    input_train, target_train,
+    batch_size=batch_size,
+    epochs=no_epochs,
+    verbose=verbosity,
+    validation_split=validation_split)
 
 # Generate generalization metrics
 score = model.evaluate(input_test, target_test, verbose=0)
 print(f'Test loss: {score[0]} / Test accuracy: {score[1]}')
-
-# Visualize history
-# Plot history: Loss
-plt.plot(history.history['val_loss'])
-plt.title('Validation loss history')
-plt.ylabel('Loss value')
-plt.xlabel('No. epoch')
-plt.show()
-
-# Plot history: Accuracy
-plt.plot(history.history['val_accuracy'])
-plt.title('Validation accuracy history')
-plt.ylabel('Accuracy value (%)')
-plt.xlabel('No. epoch')
-plt.show()

@@ -1,9 +1,10 @@
 matplotlib
 seaborn
 pandas
-
-tensorflow
-cmake
-dlib
 numpy
 opencv-python
+tensorflow
+keras
+
+cmake
+dlib

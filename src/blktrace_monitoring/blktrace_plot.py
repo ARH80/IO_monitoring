@@ -2,21 +2,41 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
+import sys
+
 from collections import Counter
-from datetime import datetime
-
-fig, ax = plt.subplots(2, 2, frameon=False, figsize=(10, 10))
 
 
-class BLKPlotter:
+class BLK:
 
-    @staticmethod
-    def get_features_dataframe():
+    def __init__(self, directory):
+        self.directory = directory
+        self.df = None
+
+        with open(F'{directory}/parsed_trace.txt', 'r') as f:
+            self.lines = f.readlines()
+
+        copy_list = []
+        for line in self.lines:
+            if line.startswith('CPU'):
+                break
+
+            copy_list.append(line)
+
+        self.lines = copy_list
+        last = self.lines[-1]
+        last = float(last.split()[3])
+
+        self.time_scope_size = int(last // 100)
+        self.time_scope_size = max(self.time_scope_size, 1)
+        self.address_scope_size = 25 * 1e6
+
+    def get_features_dataframe(self):
         def parser(record):
             tokens = record.split()
             result = {
                 'timestamp': float(tokens[3]),
-                'time_scope': float(tokens[3]) // time_scope_size,
+                'time_scope': float(tokens[3]) // self.time_scope_size,
                 'cid': int(tokens[1]),
                 'sid': int(tokens[2]),
                 'pid': int(tokens[4]),
@@ -31,61 +51,64 @@ class BLKPlotter:
             result.update({'end_address': result['start_address'] + result['size']})
 
             result.update({
-                'scope_start_address': int(result['start_address'] // address_scope_size),
-                'scope_end_address': int(result['start_address'] // address_scope_size)
+                'scope_start_address': int(result['start_address'] // self.address_scope_size),
+                'scope_end_address': int(result['start_address'] // self.address_scope_size)
             })
 
             return result
 
-        with open('parsed_trace.txt', 'r') as f:
-            lines = f.readlines()
-            dicts = [parser(x) for x in lines]
+        df = pd.DataFrame([parser(x) for x in self.lines])
+        self.df = df[df.rw_spec != 'N']
 
-        df = pd.DataFrame(dicts)
-        return df[df.rw_spec != 'N']
-
-    @staticmethod
-    def pie_plot(df):
+    def pie_plot(self):
         palette_color = sns.color_palette('bright')
 
-        ax[0, 0].pie(
-            [df[df.rw_spec == 'R'].shape[0], df[df.rw_spec == 'W'].shape[0]],
+        _ = plt.figure()
+        plt.pie(
+            [self.df[self.df.rw_spec == 'R'].shape[0], self.df[self.df.rw_spec == 'W'].shape[0]],
             labels=['Read', 'Write'],
             colors=palette_color,
             autopct='%.0f%%')
 
-    @staticmethod
-    def density_on_size(df):
-        ax[0, 1].plot.hist(column=['size'], by='rw_spec', bins=50)
+        plt.savefig(F'{self.directory}/pie')
 
-    @staticmethod
-    def rw_intensive_plot(df):
+    def density_on_size(self):
+        _ = plt.figure()
+        self.df.plot(kind='hist', column=['size'], by='rw_spec', bins=50)
+        plt.savefig(F'{self.directory}/density_on_size.png')
+
+    def rw_intensive_plot(self):
         def count_R(group):
             return group[group == 'R'].shape[0]
 
         def count_W(group):
             return group[group == 'W'].shape[0]
 
-        df = df.groupby(['time_scope']).agg(r_count=('rw_spec', count_R), w_count=('rw_spec', count_W))
-        df.plot.bar(ax=ax[1, 0])
+        df = self.df.groupby(['time_scope']).agg(
+            r_count=('rw_spec', count_R), w_count=('rw_spec', count_W))
 
-    @staticmethod
-    def address_frequency(df):
+        _ = plt.figure()
+        df.plot(kind='bar')
+        plt.savefig(F'{self.directory}/rw_intensive.png')
+
+    def address_frequency(self):
         c = Counter()
-        _ = df[['scope_start_address', 'scope_end_address']].apply(
+        _ = self.df[['scope_start_address', 'scope_end_address']].apply(
             lambda row: c.update(list(range(row[0], row[1] + 1))), axis=1)
 
         scopes, counts = zip(*c.items())
-        plt.bar(scopes, counts, ax=ax[1, 1])
+
+        _ = plt.figure()
+        plt.bar(scopes, counts)
+        plt.savefig(F'{self.directory}/address_frequency.png')
 
 
-dp = BLKPlotter.get_features_dataframe()
+blk = BLK(sys.argv[1])
+blk.get_features_dataframe()
 
-time_scope_size = int(dp.timestamp.max() // 100)
-address_scope_size = 25 * 1e6
+blk.density_on_size()
+blk.pie_plot()
+blk.address_frequency()
+blk.rw_intensive_plot()
 
-BLKPlotter.address_frequency(dp)
-BLKPlotter.rw_intensive_plot(dp)
-BLKPlotter.pie_plot(dp)
-BLKPlotter.density_on_size(dp)
-fig.savefig('blk-4main-plots.png')
+plt.savefig('./blk-4main-plots.png')
