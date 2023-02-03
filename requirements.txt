@@ -5,11 +5,11 @@ numpy
 opencv-python
 tensorflow
 keras
-
 cmake
 dlib
-
+tqdm
 torch
+einops
 torchvision
 sklearn
-autoaugment
+remotezip
