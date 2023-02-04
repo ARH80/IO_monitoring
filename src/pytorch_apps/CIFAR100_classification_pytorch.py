@@ -6,17 +6,10 @@ import torchvision
 import torch.nn as nn
 import numpy as np
 import torch.nn.functional as F
-from torchvision.datasets.utils import download_url
-from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader
 import torchvision.transforms as tt
-from torch.utils.data import random_split
-from torchvision.utils import make_grid
-import torchvision.models as models
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 from sklearn.metrics import *
-
-# %matplotlib inline
 
 batch_size = 400
 epochs = 120
@@ -27,13 +20,10 @@ opt_func = torch.optim.Adam
 
 train_data = torchvision.datasets.CIFAR100('./', train=True, download=True)
 
-# Stick all the images together to form a 1600000 X 32 X 3 array
 x = np.concatenate([np.asarray(train_data[i][0]) for i in range(len(train_data))])
 
-# calculate the mean and std along the (0, 1) axes
 mean = np.mean(x, axis=(0, 1))/255
 std = np.std(x, axis=(0, 1))/255
-# the the mean and std
 mean=mean.tolist()
 std=std.tolist()
 
@@ -47,15 +37,15 @@ trainset = torchvision.datasets.CIFAR100("./",
                                          train=True,
                                          download=True,
                                          transform=transform_train)
-trainloader = torch.utils.data.DataLoader(
-    trainset, batch_size, shuffle=True, num_workers=2,pin_memory=True)
+
+trainloader = torch.utils.data.DataLoader(trainset, batch_size, shuffle=True, num_workers=2,pin_memory=True)
 
 testset = torchvision.datasets.CIFAR100("./",
                                         train=False,
                                         download=True,
                                         transform=transform_test)
-testloader = torch.utils.data.DataLoader(
-    testset, batch_size*2,pin_memory=True, num_workers=2)
+testloader = torch.utils.data.DataLoader(testset, batch_size*2,pin_memory=True, num_workers=2)
+
 def get_default_device():
     """Pick GPU if available, else CPU"""
     if torch.cuda.is_available():
@@ -140,9 +130,9 @@ class ResNet9(ImageClassificationBase):
         self.conv5 = conv_block(512, 1028, pool=True) 
         self.res3 = nn.Sequential(conv_block(1028, 1028), conv_block(1028, 1028))  
         
-        self.classifier = nn.Sequential(nn.MaxPool2d(2), # 1028 x 1 x 1
-                                        nn.Flatten(), # 1028 
-                                        nn.Linear(1028, num_classes)) # 1028 -> 100
+        self.classifier = nn.Sequential(nn.MaxPool2d(2),
+                                        nn.Flatten(),
+                                        nn.Linear(1028, num_classes))
         
     def forward(self, xb):
         out = self.conv1(xb)
@@ -174,14 +164,12 @@ def fit_one_cycle(epochs, max_lr, model, train_loader, test_loader,
     torch.cuda.empty_cache()
     history = []
     
-    # Set up cutom optimizer with weight decay
     optimizer = opt_func(model.parameters(), max_lr, weight_decay=weight_decay)
-    # Set up one-cycle learning rate scheduler
     sched = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr, epochs=epochs, 
                                                 steps_per_epoch=len(train_loader))
     
-    for epoch in range(epochs):
-        # Training Phase 
+    for epoch in tqdm(range(epochs)):
+        # Training Phase
         model.train()
         train_losses = []
         lrs = []
