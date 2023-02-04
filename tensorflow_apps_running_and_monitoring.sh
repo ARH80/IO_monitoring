@@ -1,0 +1,2 @@
+sudo sh scripts/screens-monitoring.sh "Your Python Path (env python)" "src/tensorflow_apps" "cifar-100-classification-with-keras.py" "Your Disk" "keras-classification-cifar-100"
+sudo sh scripts/screens-monitoring.sh "Your Python Path (env python)" "src/tensorflow_apps" "mnist-classification-with-keras.py" "Your Disk" "keras-classification-mnist"
