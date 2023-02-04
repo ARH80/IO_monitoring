@@ -21,6 +21,7 @@ time cat $2/$5/trace.txt | blkparse -i - > $2/$5/parsed_trace.txt
 $1 src/blktrace_monitoring/blktrace_plot.py $2/$5
 $1 src/iostat_monitoring/iostat/main.py --data $2/$5/iostat.txt --disk $4 --output $2/$5/iostat.csv csv
 $1 src/iostat_monitoring/iostat/main.py --data $2/$5/iostat.txt --disk $4 --fig-output $2/$5/iostat-plot.png plot
+$1 src/iostat_monitoring/intensive.py iostat_cpu.csv iostat_devices.csv
 
 rm -f $2/$5/trace.txt
 
