@@ -24,6 +24,7 @@ $1 src/blktrace_monitoring/blktrace_plot.py $2/$5
 
 rm -f $2/$5/trace.txt
 
+chmod -R 777 $2/$5/iostat-plot.png
 chmod -R 777 $2/$5/iostat_cpu.csv
 chmod -R 777 $2/$5/iostat_devices.csv
 chmod -R 777 $2/$5
