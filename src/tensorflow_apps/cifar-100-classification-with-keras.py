@@ -4,33 +4,24 @@ from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D
 from tensorflow.keras.losses import sparse_categorical_crossentropy
 from tensorflow.keras.optimizers import Adam
 
-import matplotlib.pyplot as plt
-
-# Model configuration
-batch_size = 50
+batch_size = 512
 img_width, img_height, img_num_channels = 32, 32, 3
-loss_function = sparse_categorical_crossentropy
 no_classes = 100
-no_epochs = 1
-optimizer = Adam()
-validation_split = 0.2
-verbosity = 1
+no_epochs = 10
 
-# Load CIFAR-100 data
+loss_function = sparse_categorical_crossentropy
+optimizer = Adam()
+
 (input_train, target_train), (input_test, target_test) = cifar100.load_data()
 
-# Determine shape of the data
 input_shape = (img_width, img_height, img_num_channels)
 
-# Parse numbers as floats
 input_train = input_train.astype('float32')
 input_test = input_test.astype('float32')
 
-# Normalize data
 input_train = input_train / 255
 input_test = input_test / 255
 
-# Create the model
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
 model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -50,9 +41,8 @@ history = model.fit(
     input_train, target_train,
     batch_size=batch_size,
     epochs=no_epochs,
-    verbose=verbosity,
-    validation_split=validation_split)
+    verbose=1,
+    validation_split=0.2)
 
-# Generate generalization metrics
 score = model.evaluate(input_test, target_test, verbose=0)
 print(f'Test loss: {score[0]} / Test accuracy: {score[1]}')

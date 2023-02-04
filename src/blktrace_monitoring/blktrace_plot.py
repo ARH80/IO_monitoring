@@ -72,7 +72,7 @@ class BLK:
             autopct='%.0f%%')
 
         plt.title('Pie chart.')
-        plt.savefig(F'{self.directory}/pie')
+        plt.savefig(F'{self.directory}/pie_read_and_write.png')
 
     def density_on_size(self):
         _ = plt.figure()
@@ -93,7 +93,7 @@ class BLK:
             lambda row: row[0] < row[1], axis=1).astype(int)
 
         df['RI'] = df[['r_count', 'w_count']].apply(
-            lambda row: row[1] < row[0], axis=1).astype(int)
+            lambda row: row[1] <= row[0], axis=1).astype(int)
 
         _ = plt.figure()
         df[['WI', 'RI']].plot(kind='bar')
@@ -107,10 +107,30 @@ class BLK:
 
         scopes, counts = zip(*c.items())
 
+        counts = np.array(counts)
+        counts = counts / counts.sum()
+
         _ = plt.figure()
-        plt.bar(scopes, counts)
+        plt.bar(np.sort(scopes), counts[np.argsort(scopes)])
         plt.title('Address Freq.s')
-        plt.savefig(F'{self.directory}/address_frequency.png')
+        plt.savefig(F'{self.directory}/address_scope_frequency.png')
+
+    def scope_frequency_cdf(self):
+        c = Counter()
+        _ = self.df[['scope_start_address', 'scope_end_address']].apply(
+            lambda row: c.update(list(range(row[0], row[1] + 1))), axis=1)
+
+        scopes, counts = zip(*c.items())
+
+        counts = np.array(counts)
+        counts = counts / counts.sum()
+        counts = counts[np.argsort(scopes)]
+        counts = np.cumsum(counts)
+
+        _ = plt.figure()
+        plt.bar(np.sort(scopes), counts)
+        plt.title('Address Freq.s')
+        plt.savefig(F'{self.directory}/address_scope_freq_cdf.png')
 
     def hot_and_cold_scopes(self):
 
@@ -150,5 +170,4 @@ blk.pie_plot()
 blk.scope_frequency()
 blk.rw_intensive_plot()
 blk.hot_and_cold_scopes()
-
-plt.savefig('./blk-4main-plots.png')
+blk.scope_frequency_cdf()
