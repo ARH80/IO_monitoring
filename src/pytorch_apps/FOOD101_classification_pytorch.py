@@ -14,7 +14,7 @@ data_dir = r'D:\food\images'
 # TODO: Define transforms for the training data and testing data
 train_transforms = transforms.Compose([transforms.RandomRotation(30),
                                        transforms.RandomResizedCrop(224),
-                                       transforms.RandomHorizontalFlip(),ImageNetPolicy(),
+                                       transforms.RandomHorizontalFlip(), ImageNetPolicy(),
                                        transforms.ToTensor(),
                                        transforms.Normalize([0.485, 0.456, 0.406],
                                                             [0.229, 0.224, 0.225])])

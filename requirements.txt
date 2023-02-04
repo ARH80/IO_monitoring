@@ -13,3 +13,4 @@ einops
 torchvision
 scikit-learn
 remotezip
+augment-auto
