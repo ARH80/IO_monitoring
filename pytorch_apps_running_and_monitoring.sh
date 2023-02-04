@@ -1,0 +1,2 @@
+sudo sh scripts/screens-monitoring.sh "Your Python Path (env python)" "src/pytorch_apps" "CIFAR100_classification_pytorch.py" "Your Disk" "torch-classification-cifar-100"
+sudo sh scripts/screens-monitoring.sh "Your Python Path (env python)" "src/pytorch_apps" "MNIST-Convolutional-Neural-Networks.py" "Your Disk" "torch-classification-mnist"
