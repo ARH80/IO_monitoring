@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="96ac617e-1989-4019-bccd-d99d6140eaae" name="Changes" comment="Qre: change tensorflow app and fix bugs">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytorch_apps_running_and_monitoring.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/iostat_monitoring/intensive.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/iostat_monitoring/intensive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/cifar-100-classification-with-keras.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tensorflow_apps/cifar-100-classification-with-keras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/address_scope_freq_cdf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/address_scope_frequency.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/density_on_size.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/hot_and_cold_scopes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/iostat-plot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/iostat.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/iostat_cpu.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/iostat_devices.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/parsed_trace.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/pie_read_and_write.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/rw_intensive.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/keras-classification-cifar-100/trace.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tensorflow_apps/mnist-classification-with-keras.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tensorflow_apps/mnist-classification-with-keras.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tensorflow_apps_running_and_monitoring.sh" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/tensorflow_apps/video-classification.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LAoVNUMu1qxyRupLep7dwQwdtj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/alireza/Documents/ALG-HW3&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/blktrace_monitoring" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.cifar-100-classification-with-keras">
+    <configuration name="blktrace_plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IO_monitoring" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/blktrace_monitoring" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/blktrace_monitoring/blktrace_plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="cifar-100-classification-with-keras" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IO_monitoring" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tensorflow_apps" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/tensorflow_apps/cifar-100-classification-with-keras.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="io-process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IO_monitoring" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/blktrace_monitoring" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/blktrace_monitoring/io-process.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mnist-classification-with-keras" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IO_monitoring" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tensorflow_apps" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/tensorflow_apps/mnist-classification-with-keras.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="video-classification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="IO_monitoring" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tensorflow_apps" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/tensorflow_apps/video-classification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.cifar-100-classification-with-keras" />
+        <item itemvalue="Python.mnist-classification-with-keras" />
+        <item itemvalue="Python.video-classification" />
+        <item itemvalue="Python.blktrace_plot" />
+        <item itemvalue="Python.io-process" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="96ac617e-1989-4019-bccd-d99d6140eaae" name="Changes" comment="" />
+      <created>1675323271723</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675323271723</updated>
+      <workItem from="1675323274128" duration="1085000" />
+      <workItem from="1675325668478" duration="8147000" />
+      <workItem from="1675336960135" duration="12907000" />
+      <workItem from="1675351763206" duration="5511000" />
+      <workItem from="1675404583853" duration="2535000" />
+      <workItem from="1675408060469" duration="4122000" />
+      <workItem from="1675414309807" duration="11564000" />
+      <workItem from="1675435057733" duration="5742000" />
+      <workItem from="1675445688818" duration="23000" />
+      <workItem from="1675507689984" duration="5408000" />
+      <workItem from="1675513116872" duration="14517000" />
+      <workItem from="1675541408432" duration="746000" />
+      <workItem from="1675672821942" duration="40000" />
+    </task>
+    <task id="LOCAL-00001" summary="Ahmad starting. (RUN)">
+      <created>1675327723765</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675327723765</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Qre starting. (RUN)">
+      <created>1675334433195</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1675334433195</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Qre change scripts">
+      <created>1675338498627</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675338498627</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Qre change scripts">
+      <created>1675338911833</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675338911833</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Qre add 4-main plot.">
+      <created>1675353245874</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675353245874</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Qre add apps">
+      <created>1675353658716</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675353658716</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Qre add apps">
+      <created>1675358391600</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675358391600</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Qre:&#10;-final: screen scripts&#10;-debug: blk-plotting">
+      <created>1675417673429</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675417673429</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Qre:&#10;-final: screen scripts&#10;-add: video classifier">
+      <created>1675423273046</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1675423273047</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Qre:&#10;-add: scikit-learn to requirements">
+      <created>1675423458879</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1675423458879</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Qre:&#10;-add: new tensorflow app too testing">
+      <created>1675431516478</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1675431516478</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Qre:&#10;-add: new tensorflow app too testing">
+      <created>1675431697063</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1675431697063</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Qre:&#10;-add: heat_map plot&#10;-fix: scripts bugs">
+      <created>1675440288283</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1675440288283</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Qre(end)">
+      <created>1675516483777</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1675516483778</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Qre(end)">
+      <created>1675516525232</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1675516525232</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Qre(end)">
+      <created>1675519932120</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1675519932120</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Qre: change tensorflow app and fix bugs">
+      <created>1675530750849</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1675530750849</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="requirements.txt" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Ahmad starting. (RUN)" />
+    <MESSAGE value="Qre starting. (RUN)" />
+    <MESSAGE value="Qre change scripts" />
+    <MESSAGE value="Qre add 4-main plot." />
+    <MESSAGE value="Qre add apps" />
+    <MESSAGE value="Qre:&#10;-final: screen scripts&#10;-debug: blk-plotting" />
+    <MESSAGE value="Qre:&#10;-final: screen scripts&#10;-add: video classifier" />
+    <MESSAGE value="Qre:&#10;-add: scikit-learn to requirements" />
+    <MESSAGE value="Qre:&#10;-add: new tensorflow app too testing" />
+    <MESSAGE value="Qre:&#10;-add: heat_map plot&#10;-fix: scripts bugs" />
+    <MESSAGE value="Qre(end)" />
+    <MESSAGE value="Qre: change tensorflow app and fix bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Qre: change tensorflow app and fix bugs" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/IO_monitoring$io_process.coverage" NAME="io-process Coverage Results" MODIFIED="1675336522422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/blktrace_monitoring" />
+    <SUITE FILE_PATH="coverage/IO_monitoring$video_classification.coverage" NAME="video-classification Coverage Results" MODIFIED="1675422524743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/tensorflow_apps" />
+    <SUITE FILE_PATH="coverage/IO_monitoring$blktrace_plot.coverage" NAME="blktrace_plot Coverage Results" MODIFIED="1675410557071" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/blktrace_monitoring" />
+    <SUITE FILE_PATH="coverage/IO_monitoring$mnist_classification_with_keras.coverage" NAME="mnist-classification-with-keras Coverage Results" MODIFIED="1675537535054" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/tensorflow_apps" />
+    <SUITE FILE_PATH="coverage/IO_monitoring$cifar_100_classification_with_keras.coverage" NAME="cifar-100-classification-with-keras Coverage Results" MODIFIED="1675538827426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/tensorflow_apps" />
+  </component>
+</project>
